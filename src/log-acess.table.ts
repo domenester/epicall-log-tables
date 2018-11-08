@@ -54,8 +54,8 @@ export class LogAccess implements ITableHandler{
   }
 }
 
-export const LogAccessInstance = (uri: string): LogAccess => {
-  const sequelizeInstance = new sequelize(uri);
+export const LogAccessInstance = (uri: string, options?: sequelize.Options): LogAccess => {
+  const sequelizeInstance = new sequelize(uri, options || { logging: false });
   const logAccess = new LogAccess(sequelizeInstance);
   logAccess.initialize();
   return logAccess;

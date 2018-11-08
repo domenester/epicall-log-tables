@@ -67,8 +67,8 @@ export class LogConference implements ITableHandler{
   }
 }
 
-export const LogConferenceInstance = (uri: string): LogConference => {
-  const sequelizeInstance = new sequelize(uri);
+export const LogConferenceInstance = (uri: string, options?: sequelize.Options): LogConference => {
+  const sequelizeInstance = new sequelize(uri, options || { logging: false });
   const logConference = new LogConference(sequelizeInstance);
   logConference.initialize();
   return logConference;

@@ -74,8 +74,8 @@ export class LogCall implements ITableHandler{
   }
 }
 
-export const LogCallInstance = (uri: string): LogCall => {
-  const sequelizeInstance = new sequelize(uri);
+export const LogCallInstance = (uri: string, options?: sequelize.Options): LogCall => {
+  const sequelizeInstance = new sequelize(uri, options || { logging: false });
   const logCall = new LogCall(sequelizeInstance);
   logCall.initialize();
   return logCall;

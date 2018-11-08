@@ -67,9 +67,10 @@ export class LogConferenceParticipant implements ITableHandler{
 
 export const LogConferenceParticipantInstance = (
   uri: string,
-  modelForeign: sequelize.Model<string, {}>
+  modelForeign: sequelize.Model<string, {}>,
+  options?: sequelize.Options
 ): LogConferenceParticipant => {
-  const sequelizeInstance = new sequelize(uri);
+  const sequelizeInstance = new sequelize(uri, options || { logging: false });
   const logConference = new LogConferenceParticipant(sequelizeInstance);
   logConference.initialize(modelForeign);
   return logConference;
