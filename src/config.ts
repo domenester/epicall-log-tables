@@ -8,7 +8,7 @@ export const LOG_ACCESS = {
   name: generateTableName("log_acesso"),
   fields: {
     id: { value: "id", type: "UUID", primaryKey: true },
-    userId: { value: "usuario", type: "UUID" },
+    userId: { value: "usuario", type: "STRING" },
     createdAt: { value: "created_at", type: "DATE" },
     isLogoff: { value: "is_logoff", type: "BOOLEAN" }
   }

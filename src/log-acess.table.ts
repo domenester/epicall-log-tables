@@ -22,7 +22,7 @@ export class LogAccess implements ITableHandler{
         primaryKey: fields.id.primaryKey,
       },
       [fields.userId.value]: {
-        type: sequelize.UUID,
+        type: sequelize.STRING,
         allowNull: false
       },
       [fields.createdAt.value]: {
