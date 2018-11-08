@@ -1,0 +1,24 @@
+{
+  "name": "epicall-log-tables",
+  "version": "1.0.0",
+  "description": "Tables signature for logs of epicall project",
+  "main": "dist/index",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Diogo Domene",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^10.12.3"
+  },
+  "dependencies": {
+    "@types/sequelize": "^4.27.30",
+    "pg": "^7.6.1",
+    "sequelize": "^4.41.1",
+    "tslint": "^5.11.0",
+    "typescript": "^3.1.6"
+  }
+}
