@@ -12,7 +12,7 @@ export class LogConferenceParticipant implements ITableHandler{
     this.sequelize = sequelize;
   }
 
-  initialize(modelForeign: sequelize.Model<string, {}>) {
+  initialize() {
 
     const { fields } = LOG_CONFERENCE_PARTICIPANT;
 
@@ -27,7 +27,7 @@ export class LogConferenceParticipant implements ITableHandler{
         defaultValue: sequelize.NOW
       },
       [fields.userId.value]: {
-        type: sequelize.UUID,
+        type: sequelize.STRING,
         allowNull: false
       },
       [fields.gotInAt.value]: {
@@ -46,8 +46,15 @@ export class LogConferenceParticipant implements ITableHandler{
       freezeTableName: true,
       timestamps: false
     });
+  }
 
-    this.model.belongsTo(modelForeign);
+  belongsTo(
+    model: sequelize.Model<string, {}>, 
+    options?: sequelize.AssociationOptionsBelongsTo
+  ) {
+    return this.model.belongsTo(model, options || { 
+      foreignKey: { allowNull: false }, onDelete: 'CASCADE' 
+    });
   }
 
   getModel() {
@@ -67,11 +74,13 @@ export class LogConferenceParticipant implements ITableHandler{
 
 export const LogConferenceParticipantInstance = (
   uri: string,
-  modelForeign: sequelize.Model<string, {}>,
   options?: sequelize.Options
 ): LogConferenceParticipant => {
-  const sequelizeInstance = new sequelize(uri, options || { logging: false });
+  const sequelizeInstance = new sequelize(uri, options || {
+    dialect: "postgres",
+    logging: false 
+  });
   const logConference = new LogConferenceParticipant(sequelizeInstance);
-  logConference.initialize(modelForeign);
+  logConference.initialize();
   return logConference;
 }

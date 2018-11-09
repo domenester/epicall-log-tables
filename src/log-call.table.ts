@@ -27,11 +27,11 @@ export class LogCall implements ITableHandler{
         defaultValue: sequelize.NOW
       },
       [fields.userIdFrom.value]: {
-        type: sequelize.UUID,
+        type: sequelize.STRING,
         allowNull: false
       },
       [fields.userIdTo.value]: {
-        type: sequelize.UUID,
+        type: sequelize.STRING,
         allowNull: false
       },
       [fields.type.value]: {

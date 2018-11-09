@@ -27,7 +27,7 @@ export class LogConference implements ITableHandler{
         defaultValue: sequelize.NOW
       },
       [fields.userIdFrom.value]: {
-        type: sequelize.UUID,
+        type: sequelize.STRING,
         allowNull: false
       },
       [fields.startedAt.value]: {
@@ -49,6 +49,15 @@ export class LogConference implements ITableHandler{
     }, { 
       freezeTableName: true,
       timestamps: false
+    });
+  }
+
+  hasMany(
+    model: sequelize.Model<string, {}>, 
+    options?: sequelize.AssociationOptionsBelongsTo
+  ) {
+    return this.model.hasMany(model, options || { 
+      foreignKey: { allowNull: false }, onDelete: 'CASCADE' 
     });
   }
 

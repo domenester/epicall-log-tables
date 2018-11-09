@@ -18,9 +18,9 @@ export const LOG_CALL = {
   name: generateTableName("log_chamada"),
   fields: {
     id: { value: "id", type: "UUID", primaryKey: true },
-    userIdFrom: { value: "usuario_origem", type: "UUID" },
+    userIdFrom: { value: "usuario_origem", type: "STRING" },
     createdAt: { value: "created_at", type: "DATE" },
-    userIdTo: { value: "usuario_destino", type: "UUID" },
+    userIdTo: { value: "usuario_destino", type: "STRING" },
     type: { value: "tipo_chamada", type: "INT" },
     startedAt: { value: "data_inicio", type: "DATE" },
     endedAt: { value: "data_final", type: "DATE" },
@@ -34,7 +34,7 @@ export const LOG_CONFERENCE = {
   fields: {
     id: { value: "id", type: "UUID", primaryKey: true },
     createdAt: { value: "created_at", type: "DATE" },
-    userIdFrom: { value: "usuario_origem", type: "UUID" },
+    userIdFrom: { value: "usuario_origem", type: "STRING" },
     startedAt: { value: "data_inicio", type: "DATE" },
     endedAt: { value: "data_final", type: "DATE" },
     file: { value: "arquivo_gravacao", type: "VARCHAR", length: 255 },
@@ -48,7 +48,7 @@ export const LOG_CONFERENCE_PARTICIPANT = {
     id: { value: "id", type: "UUID", primaryKey: true },
     createdAt: { value: "created_at", type: "DATE" },
     idConference: { value: "log_conferencia", type: "UUID" },
-    userId: { value: "usuario", type: "UUID" },
+    userId: { value: "usuario", type: "STRING" },
     gotInAt: { value: "data_entrada", type: "DATE" },
     gotOutAt: { value: "data_saida", type: "DATE" },
     status: { value: "status", type: "INT" }
