@@ -23,7 +23,6 @@ export class LogCall implements ITableHandler{
       },
       [fields.createdAt.value]: {
         type: sequelize.DATE,
-        allowNull: false,
         defaultValue: sequelize.NOW
       },
       [fields.userIdFrom.value]: {

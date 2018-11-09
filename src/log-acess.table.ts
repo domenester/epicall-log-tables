@@ -27,7 +27,7 @@ export class LogAccess implements ITableHandler{
       },
       [fields.createdAt.value]: {
         type: sequelize.DATE,
-        allowNull: false
+        defaultValue: sequelize.NOW
       },
       [fields.isLogoff.value]: {
         type: sequelize.BOOLEAN,

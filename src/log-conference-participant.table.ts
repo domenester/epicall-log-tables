@@ -21,9 +21,12 @@ export class LogConferenceParticipant implements ITableHandler{
         type: sequelize.UUID,
         primaryKey: fields.id.primaryKey
       },
+      [fields.idConference.value]: {
+        type: sequelize.UUID,
+        allowNull: false,
+      },
       [fields.createdAt.value]: {
         type: sequelize.DATE,
-        allowNull: false,
         defaultValue: sequelize.NOW
       },
       [fields.userId.value]: {
