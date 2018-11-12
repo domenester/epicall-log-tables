@@ -1,6 +1,6 @@
 {
   "name": "epicall-log-tables",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tables signature for logs of epicall project",
   "main": "dist/index",
   "types": "dist/index.d.ts",
